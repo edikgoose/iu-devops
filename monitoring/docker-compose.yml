@@ -20,6 +20,8 @@ services:
       resources:
         limits:
           memory: 256m
+    volumes:
+      - moscow_time_app_data:/app/src/resources
 
   base-converter-app:
     image: edikgoose/base-converter:latest
@@ -33,6 +35,8 @@ services:
       resources:
         limits:
           memory: 512m
+    volumes:
+      - base_converter_app_data:/app/sources/
 
   promtail:
     image: grafana/promtail:2.9.1
@@ -103,3 +107,7 @@ services:
       resources:
         limits:
           memory: 1g
+
+volumes:
+  moscow_time_app_data:
+  base_converter_app_data:
